@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Play Store</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .play-store {
+            text-align: center;
+            padding: 20px;
+        }
+        .logo-app {
+            width: 96px;
+            height: 96px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        .titulo-app {
+            font-size: 24px;
+            font-weight: bold;
+            color: #202124;
+            margin: 0 0 5px 0;
+        }
+        .creador {
+            color: #01875f;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+        .btn-instalar {
+            background-color: #01875f;
+            color: white;
+            border: none;
+            padding: 12px 64px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 24px;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        #pantalla-troll {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        #pantalla-troll img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="interfaz-google" class="play-store">
+        <img class="logo-app" src="https://wikimedia.org" alt="App Icon">
+        <div class="titulo-app">Super Juego Premium</div>
+        <div class="creador">Google LLC • Gratis</div>
+        <button class="btn-instalar" onclick="activarBroma()">Instalar</button>
+    </div>
+
+    <div id="pantalla-troll">
+        <img src="https://wikimedia.org" alt="Troll">
+    </div>
+
+    <audio id="troll-audio" src="https://google.com" loop></audio>
+
+    <script>
+        function activarBroma() {
+            document.getElementById('interfaz-google').style.display = 'none';
+            document.getElementById('pantalla-troll').style.display = 'flex';
+            
+            const audio = document.getElementById('troll-audio');
+            audio.play();
+
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
